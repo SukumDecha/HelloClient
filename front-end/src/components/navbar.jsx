@@ -1,24 +1,24 @@
 import LinkCom from "./Link";
 import '../App.css';
+import App from "./opdate";
 
 const navbar = () => {
   return (
     <>
     <div className='Navbar'>
-        <div className='flex gap-10 bg-green-600'>
-          <div>
-            <h2>Feb 2,Sun</h2>
-            <h2>Open : 10.00 - 20.00</h2>
+        <div className='navcontent'>
+          <div className="date">
+            <App />
+            <h2>Open Hour : 08.00 - 22.00</h2>
           </div>
             <LinkCom Linkto="" text=""/>
-            <LinkCom Linkto="/Roombooking" text="RoomBooking"/>
+            <LinkCom Linkto="/Roombooking" text="My Booking"/>
             <LinkCom Linkto="/Help" text="Help"/>
             <LinkCom Linkto="/Report" text="Report"/>
-            <LinkCom Linkto="/Calendar" text="Calendar"/>
         </div>
-        <div className='flex gap-10 bg-green-600'>
+        <div className='navcontent'>
             <button>EN</button>
-            <LinkCom Linkto="/Contactus" text="Contact us"/>
+            <button><LinkCom Linkto="/Contactus" text="Contact us"/></button>
         </div>
     </div>
     </>
