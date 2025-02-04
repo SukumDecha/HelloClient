@@ -1,3 +1,5 @@
+import Formtools from "../components/formtools"
+
 const tools = () => {
   return (
     <div className="toolscontent">
