@@ -1,5 +1,6 @@
 import Navbar from "../components/navbar"
 import '../App.css';
+import Footer from "../components/footer";
 
 const Roombooking = () => {
 
@@ -90,6 +91,7 @@ const Roombooking = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }
