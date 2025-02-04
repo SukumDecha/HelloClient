@@ -1,6 +1,9 @@
-const formtools = () => {
+const formtools = ({text,htmlfor}) => {
   return (
-    <div>formtools</div>
+    <form className="text-center">
+      <input type="checkbox" />
+      <label htmlFor={htmlfor}>{text}</label>
+    </form>
   )
 }
 
