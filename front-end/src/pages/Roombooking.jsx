@@ -11,7 +11,7 @@ const Roombooking = () => {
           <h1 className="text-5xl text-black">Booking Detail</h1>
         </header>
 
-        <div className="bg-white rounded-lg shadow p-4 text-black">
+        <div className="bg-black rounded-lg shadow p-4 text-black">
           <div className="flex justify-between items-center space-x-2">
             {"2,3,4,5,6,7,8".split(",").map((day, index) => (
               <div
@@ -42,7 +42,7 @@ const Roombooking = () => {
                 <div>
                   <label className="block font-bold mb-1">Select Building:</label>
                   <div className="flex space-x-2">
-                    {["Lx", "CB 2", "SIT"].map((building, index) => (
+                    {["LX", "CB 2", "SIT"].map((building, index) => (
                       <button
                         key={index}
                         className="bg-gray-300 px-3 py-1 rounded hover:bg-gray-400"
@@ -79,7 +79,7 @@ const Roombooking = () => {
                 <p className="text-pink-500 font-bold text-3xl">Booking</p>
               </div>
               <div className="border-t border-gray-300 mt-2 pt-2">
-                {Array.from({ length: 13 }).map((_, i) => (
+                {Array.from({ length: 15 }).map((_, i) => (
                   <div key={i} className="mb-2">
                     <p className="text-gray-600 text-sm">{8 + i}.00</p>
                     <div className="w-full h-8 bg-gray-200 rounded"></div>
