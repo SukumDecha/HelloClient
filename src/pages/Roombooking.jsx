@@ -6,91 +6,86 @@ const Roombooking = () => {
 
   return (
     <div>
-      <Navbar />
-      <div className="p-6">
-        <header className="py-4">
-          <h1 className="text-5xl text-black">Booking Detail</h1>
-        </header>
+ <div>
+      <div className="bg-blue-600 w-full h-[125px]"><Navbar /></div>
+      <div className="p-6 bg-white min-h-screen">
+      <header className="py-4">
+        <h1 className="text-3xl font-bold text-black">Booking Detail</h1>
+      </header>
 
-        <div className="bg-black rounded-lg shadow p-4 text-black">
-          <div className="flex justify-between items-center space-x-2">
-            {"2,3,4,5,6,7,8".split(",").map((day, index) => (
-              <div
-                key={index}
-                className="flex-1 text-center bg-gray-200 rounded-md p-2"
-              >
-                <p className="text-lg font-bold text-black">{day}</p>
-                <p className="text-sm text-gray-600">
-                  {"SUN,MON,TUE,WED,THU,FRI,SAT".split(",")[index]}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          <div className="grid grid-cols-3 gap-4 mt-6">
-            <div className="col-span-2 bg-gray-100 p-4 rounded-lg">
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="block font-bold mb-1 text-black">Start Date:</label>
-                  <input type="date" className="w-full border rounded px-2 py-1" />
-                </div>
-                <div>
-                  <label className="block font-bold mb-1">End Date:</label>
-                  <input type="date" className="w-full border rounded px-2 py-1" />
-                </div>
-              </div>
-              <div className="grid grid-cols-3 gap-4 mt-4">
-                <div>
-                  <label className="block font-bold mb-1">Select Building:</label>
-                  <div className="flex space-x-2">
-                    {["LX", "CB 2", "SIT"].map((building, index) => (
-                      <button
-                        key={index}
-                        className="bg-gray-300 px-3 py-1 rounded hover:bg-gray-400"
-                      >
-                        {building}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-                <div>
-                  <label className="block font-bold mb-1">Select Floor:</label>
-                  <input
-                    type="text"
-                    placeholder="Enter floor"
-                    className="w-full border rounded px-2 py-1"
-                  />
-                </div>
-                <div>
-                  <label className="block font-bold mb-1">Time:</label>
-                  <input
-                    type="time"
-                    className="w-full border rounded px-2 py-1"
-                  />
-                </div>
-              </div>
-              <div className="flex items-center mt-4">
-                <input type="checkbox" id="bookmark" className="mr-2" />
-                <label htmlFor="bookmark">Bookmark Save automatically</label>
-              </div>
+      <div className="flex justify-center items-center bg-gray-100 p-4 rounded-lg relative">
+        <div className="flex space-x-3">
+          {["3", "4", "5", "6", "7", "8","9"].map((day, index) => (
+            <div
+              key={index}
+              className={`flex flex-col items-center justify-center w-20 h-20 rounded-md ${day === "7" ? "text-red-400 font-bold bg-gray-200" : "text-gray-500 hover:bg-gray-300 bg-gray-200"}`}
+            >
+              <p className="text-lg font-bold">{day}</p>
+              <p className="text-xs">{["MON", "TUE", "WED", "THU", "FRI", "SAT" , "SUN"][index]}</p>
             </div>
-            <div className="bg-gray-100 p-4 rounded-lg">
-              <div className="flex justify-between items-center mb-2">
-                <p className="text-green-500 font-bold text-3xl">Available</p>
-                <p className="text-pink-500 font-bold text-3xl">Booking</p>
-              </div>
-              <div className="border-t border-gray-300 mt-2 pt-2">
-                {Array.from({ length: 15 }).map((_, i) => (
-                  <div key={i} className="mb-2">
-                    <p className="text-gray-600 text-sm">{8 + i}.00</p>
-                    <div className="w-full h-8 bg-gray-200 rounded"></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+
+      <div className="grid grid-cols-2 gap-6 mt-6">
+        <div className="bg-blue-600 text-white p-6 rounded-lg">
+          <div className="grid grid-cols-2 gap-4">
+            <div>
+              <label className="block font-bold mb-1">Start Date:</label>
+              <input type="date" className="w-full border rounded-2xl px-2 py-5 text-black bg-white" />
+            </div>
+            <div>
+              <label className="block font-bold mb-1">End Date:</label>
+              <input type="date" className="w-full border rounded-2xl px-2 py-5 text-black bg-white" />
+            </div>
+          </div>
+
+          <div className="mt-4">
+            <label className="block font-bold mb-3 text-3xl">Select Building:</label>
+            <div className="flex space-x-2 ">
+              {["LX", "CB 2", "SIT"].map((building, index) => (
+                <button
+                  key={index}
+                  className="bg-gray-300 px-10 py-2 rounded-3xl text-black hover:bg-gray-400"
+                >
+                  {building}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4 mt-4">
+            <div>
+              <label className="block font-bold mb-1 text-3xl">Select Floor:</label>
+              <input type="text" className="w-full border rounded-2xl px-2 py-2 text-black bg-white" />
+            </div>
+            <div>
+              <label className="block font-bold mb-1 text-3xl">User:</label>
+              <input type="text" placeholder="Name" className="w-full border rounded-2xl px-2 py-2 text-black bg-white" />
+              <input type="text" placeholder="User ID" className="w-full border rounded-2xl px-2 py-2 mt-2 text-black bg-white" />
+            </div>
+          </div>
+          
+
+          <div className="mt-5 flex items-center">
+            <input type="checkbox" id="saved" className="mr-3 " />
+            <label htmlFor="saved">Saved</label>
+          </div>
+        </div>
+
+        <div className="bg-blue-600 text-white p-6 rounded-lg">
+          <p className="text-lg font-bold mb-4">All Day</p>
+          {["8.00", "9.00", "10.00", "11.00"].map((time, i) => (
+            <div key={i} className="mb-2">
+              <p className="text-white-200 text-sm font-bold">{time}</p>
+              <div className="w-full h-45 bg-gray-200 rounded-4xl"></div>
+            </div>
+          ))}
+          <button className="w-full bg-gray-200 text-black p-2 rounded-2xl mt-4 hover:bg-gray-400">Book Now</button>
+        </div>
+      </div>
+    </div>
+    </div>
       <Footer />
     </div>
   );
