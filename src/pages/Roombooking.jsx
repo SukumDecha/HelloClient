@@ -1,6 +1,7 @@
 import Navbar from "../components/navbar"
 import '../App.css';
-import Footer from "../components/footer";
+import Footer from "../components/footer"
+import BuildingAndFloorSelector from "../components/BuildingAndFloorSelector";
 
 const Roombooking = () => {
 
@@ -39,51 +40,41 @@ const Roombooking = () => {
             </div>
           </div>
 
-          <div className="mt-4">
-            <label className="block font-bold mb-3 text-3xl">Select Building:</label>
-            <div className="flex space-x-2 ">
-              {["LX", "CB 2", "SIT"].map((building, index) => (
-                <button
-                  key={index}
-                  className="bg-gray-300 px-10 py-2 rounded-3xl text-black hover:bg-gray-400"
-                >
-                  {building}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4 mt-4">
+         <div className="grid grid-cols-2 gap- mt-6">
+        <div className="bg-blue-600 text-white p-1 rounded-lg">
+          <BuildingAndFloorSelector />
+        </div>
             <div>
-              <label className="block font-bold mb-1 text-3xl">Select Floor:</label>
-              <input type="text" className="w-full border rounded-2xl px-2 py-2 text-black bg-white" />
-            </div>
-            <div>
-              <label className="block font-bold mb-1 text-3xl">User:</label>
+              <label className="block font-bold mb-3 text-3xl">User:</label>
               <input type="text" placeholder="Name" className="w-full border rounded-2xl px-2 py-2 text-black bg-white" />
               <input type="text" placeholder="User ID" className="w-full border rounded-2xl px-2 py-2 mt-2 text-black bg-white" />
             </div>
           </div>
-          
-
-          <div className="mt-5 flex items-center">
-            <input type="checkbox" id="saved" className="mr-3 " />
-            <label htmlFor="saved">Saved</label>
-          </div>
         </div>
+              
+        <div className="bg-blue-600 text-white p-6 rounded-lg flex flex-col h-[500px] relative">
 
-        <div className="bg-blue-600 text-white p-6 rounded-lg">
-          <p className="text-lg font-bold mb-4">All Day</p>
-          {["8.00", "9.00", "10.00", "11.00"].map((time, i) => (
-            <div key={i} className="mb-2">
-              <p className="text-white-200 text-sm font-bold">{time}</p>
-              <div className="w-full h-45 bg-gray-200 rounded-4xl"></div>
-            </div>
-          ))}
-          <button className="w-full bg-gray-200 text-black p-2 rounded-2xl mt-4 hover:bg-gray-400">Book Now</button>
-        </div>
+  <div className="overflow-y-auto flex-1 pr-2">
+    <p className="text-lg font-bold mb-4">All Day</p>
+    {["8.00", "9.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00"].map((time, i) => (
+      <div key={i} className="mb-4">
+        <p className="text-white-200 text-sm font-bold">{time}</p>
+        <div className="w-full h-12 bg-gray-200 rounded-xl"></div> {/* กล่องเวลา */}
+      </div>
+    ))}
+  </div>
+
+  <div className="sticky bottom-0 bg-blue-600 p-2 mt-2">
+    <button className="w-full bg-gray-200 text-black p-3 rounded-2xl hover:bg-gray-400">
+      Book Now
+    </button>
+  </div>
+</div>
+
+
       </div>
     </div>
+    <Footer/>
     </div>
   );
 }

@@ -1,4 +1,5 @@
 import Footer from "../components/footer";
+import Mybooking from "../components/Mybooking";
 import Navbar from "../components/navbar"
 import Tools from "../components/tools";
 
@@ -11,6 +12,8 @@ const Heropage = () => {
         room booking system.</h1>
         <Tools/>
       </div>
+      
+      <Mybooking />
       <Footer/>
     </>
   );
