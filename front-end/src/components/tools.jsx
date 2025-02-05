@@ -1,13 +1,4 @@
-const tools = () => {
-    return (
-      <div>formtools</div>
-    )
-  }
-  
-  export default tools;
-
-
-import Formtools from "./formtools"
+import Formtools from "../components/formtools"
 
 const tools = () => {
   return (
