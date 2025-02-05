@@ -95,21 +95,50 @@ body{
     text-decoration: underline;
 }
 .toolscontent{
-    display: grid;
-    grid-template-columns: 2fr 0.1fr 1fr 0.1fr 1fr 1fr;
+    display: flex;
+    justify-self: center;
     background-color: white;
     gap:2vw; 
     color: black;
     margin: 5vh 22vw;
-    padding: 15px 0px;
+    padding: 10px 10px;
     border-radius: 50px;
     font-size: 15px;
     background-color: #D9D9D9;
 }
-.toolscontent input{
-    
-}
 .search-btn{
-    background-color: #FFFFFF;
+    background-color: #307cff;
+    color: white;
+    font-size: 15px;
     border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    cursor: pointer;
+    font-size: 18px; /* ขยายตัวอักษร */
+    padding: 12px 24px; /* เพิ่มพื้นที่ในปุ่ม */
+}
+.roomlayout{
+    background-color: antiquewhite;
+    margin:auto;
+}
+.roomlayout img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Room-Recommendation{
+    padding: 15px;
+    color: black;
+    background-color: #D9D9D9;
+    border-radius: 50px;
+    color: #000;
+    text-align: center;
+    font-family: Poppins;
+    font-size: 30px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+input::placeholder{
+    color: black;
 }
