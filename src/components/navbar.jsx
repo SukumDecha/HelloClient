@@ -11,7 +11,7 @@ const navbar = () => {
             <App />
             <h2>Open Hour : 08.00 - 22.00</h2>
           </div>
-            <LinkCom Linkto="" text=""/>
+            <LinkCom Linkto="/Heropage" text="Home"/>
             <LinkCom Linkto="/Roombooking" text="Booking Detail"/>
             <LinkCom Linkto="/Help" text="Help"/>
             <LinkCom Linkto="/Report" text="Report"/>

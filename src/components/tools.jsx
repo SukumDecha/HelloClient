@@ -3,12 +3,12 @@ import LinkCom from "./Link";
 import { useState } from "react";
 
 const buildings = [
-  { id: "CB2301", image: "/images/cb2301.jpg" },
+  { id: "CB2", image: "/img/Hero.png" },
   { id: "LX", image: "/images/cb2302.jpg" },
   { id: "SIT", image: "/images/cb2303.jpg" },
 ];
 
-const timeSlots = ["10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"];
+const timeSlots = ["08:00","09:00","10:00", "11:00", "12:00", "13:00", "14:00", "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"];
 
 const Tools = () => {
   const [showDateDropdown, setShowDateDropdown] = useState(false);

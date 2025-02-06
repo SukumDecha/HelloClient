@@ -20,7 +20,7 @@ export default function PickYourRole() {
         {["Lecturer", "Student", "Staff", "LF"].map((role) => (
           <button 
             key={role} 
-            className="w-40 text-lg bg-blue-500 text-white p-2 rounded"
+            className="flex w-40 text-lg bg-blue-500 hover:bg-blue-400 hover:cursor-pointer text-white p-2 rounded "
             onClick={() => handleRoleSelection(role)}
           >
             {role}
@@ -29,10 +29,10 @@ export default function PickYourRole() {
       </div>
 
       {popupVisible && (
-        <div className="fixed bottom-5 right-5 bg-white text-black p-4 shadow-lg w-80">
+        <div className="fixed bottom-5 right-5 bg-white text-black p-4 shadow-lg w-90 rounded-2xl">
           <div className="relative">
             <button 
-              className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              className="absolute top-0 right-0 text-gray-500 hover:text-black"
               onClick={() => setPopupVisible(false)}
             >
               X
