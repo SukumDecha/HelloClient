@@ -1,82 +1,137 @@
-import Navbar from "../components/navbar"
-import '../App.css';
-import Footer from "../components/footer"
+import Navbar from "../components/navbar";
+import "../App.css";
+import Footer from "../components/footer";
 import BuildingAndFloorSelector from "../components/BuildingAndFloorSelector";
 
 const Roombooking = () => {
+  const today = new Date();
+  const days = Array.from({ length: 7 }, (_, i) => {
+    const date = new Date();
+    date.setDate(today.getDate() + i);
+    return {
+      day: date.getDate(),
+      weekDay: date
+        .toLocaleDateString("en-US", { weekday: "short" })
+        .toUpperCase(),
+    };
+  });
 
   return (
-<div>
-      <div className="bg-blue-600 w-full h-[125px]"><Navbar /></div>
+    <div>
+      <div className="bg-[#455E86] w-full h-[125px]">
+        <Navbar />
+      </div>
       <div className="p-6 bg-white min-h-screen">
-      <header className="py-4">
-        <h1 className="text-3xl font-bold text-black">Booking Detail</h1>
-      </header>
+        <header className="py-4">
+          <h1 className="text-3xl font-bold text-black">Booking Detail</h1>
+        </header>
 
-      <div className="flex justify-center items-center bg-gray-100 p-4 rounded-lg relative">
-        <div className="flex space-x-3">
-          {["3", "4", "5", "6", "7", "8","9"].map((day, index) => (
-            <div
-              key={index}
-              className={`flex flex-col items-center justify-center w-20 h-20 rounded-md ${day === "7" ? "text-red-400 font-bold bg-gray-200" : "text-gray-500 hover:bg-gray-300 bg-gray-200"}`}
-            >
-              <p className="text-lg font-bold">{day}</p>
-              <p className="text-xs">{["MON", "TUE", "WED", "THU", "FRI", "SAT" , "SUN"][index]}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      <div className="grid grid-cols-2 gap-6 mt-6">
-        <div className="bg-blue-600 text-white p-6 rounded-lg">
-          <div className="grid grid-cols-2 gap-4">
-            <div>
-              <label className="block font-bold mb-1">Start Date:</label>
-              <input type="date" className="w-full border rounded-2xl px-2 py-5 text-black bg-white" />
-            </div>
-            <div>
-              <label className="block font-bold mb-1">End Date:</label>
-              <input type="date" className="w-full border rounded-2xl px-2 py-5 text-black bg-white" />
-            </div>
-          </div>
-
-         <div className="grid grid-cols-2 gap- mt-6">
-        <div className="bg-blue-600 text-white p-1 rounded-lg">
-          <BuildingAndFloorSelector />
-        </div>
-            <div>
-              <label className="block font-bold mb-3 text-3xl">User:</label>
-              <input type="text" placeholder="Name" className="w-full border rounded-2xl px-2 py-2 text-black bg-white" />
-              <input type="text" placeholder="User ID" className="w-full border rounded-2xl px-2 py-2 mt-2 text-black bg-white" />
-            </div>
+        <div className="flex justify-center items-center bg-gray-100 p-4 rounded-lg relative">
+          <div className="flex space-x-3">
+            {days.map((date, index) => (
+              <div
+                key={index}
+                className={`flex flex-col items-center justify-center w-20 h-20 rounded-md ${
+                  index === 0
+                    ? "text-red-400 font-bold bg-gray-200"
+                    : "text-gray-500 hover:bg-gray-300 bg-gray-200"
+                }`}
+              >
+                <p className="text-lg font-bold">{date.day}</p>
+                <p className="text-xs">{date.weekDay}</p>
+              </div>
+            ))}
           </div>
         </div>
+
+        <div className="grid grid-cols-2 gap-6 mt-6">
+          <div className="bg-[#455E86] text-white p-6 rounded-lg">
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block font-bold mb-1">Start Date:</label>
+                <input
+                  type="date"
+                  className="w-full border rounded-2xl px-2 py-5 text-black bg-white"
+                />
+              </div>
+              <div>
+                <label className="block font-bold mb-1">End Date:</label>
+                <input
+                  type="date"
+                  className="w-full border rounded-2xl px-2 py-5 text-black bg-white"
+                />
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 mt-6">
+              <div className="bg-[#455E86] text-white p-1 rounded-lg">
+                <BuildingAndFloorSelector />
+              </div>
               
-        <div className="bg-blue-600 text-white p-6 rounded-lg flex flex-col h-[500px] relative">
+              <div className="mt-5">
+                <label className="block font-bold mb-1 text-3xl">Time:</label>
+                <select className="w-full border rounded-2xl px-2 py-3 text-black bg-white">
+                  <option value="" disabled selected>
+                    Select time
+                  </option>
+                  <option value="08:00">08:00</option>
+                  <option value="09:00">09:00</option>
+                  <option value="10:00">10:00</option>
+                  <option value="11:00">11:00</option>
+                </select>
 
-  <div className="overflow-y-auto flex-1 pr-2">
-    <p className="text-lg font-bold mb-4">All Day</p>
-    {["8.00", "9.00", "10.00", "11.00", "12.00", "13.00", "14.00", "15.00", "16.00"].map((time, i) => (
-      <div key={i} className="mb-4">
-        <p className="text-white-200 text-sm font-bold">{time}</p>
-        <div className="w-full h-12 bg-gray-200 rounded-xl"></div> {/* กล่องเวลา */}
+                <div className="mt-5.5">
+                <label className="block font-bold mb-3 text-3xl">User:</label>
+                <input
+                  type="text"
+                  placeholder="Name"
+                  className="w-full border rounded-2xl px-2 py-2 text-black bg-white"
+                />
+                <input
+                  type="text"
+                  placeholder="User ID"
+                  className="w-full border rounded-2xl px-2 py-2 mt-2 text-black bg-white"
+                />
+              </div>
+              </div>
+  
+           
+
+            </div>
+          </div>
+
+          <div className="bg-[#455E86] text-white p-6 rounded-lg flex flex-col h-[500px] relative">
+            <div className="overflow-y-auto flex-1 pr-2">
+              <p className="text-lg font-bold mb-4">All Day</p>
+              {[
+                "8.00",
+                "9.00",
+                "10.00",
+                "11.00",
+                "12.00",
+                "13.00",
+                "14.00",
+                "15.00",
+                "16.00",
+              ].map((time, i) => (
+                <div key={i} className="mb-4">
+                  <p className="text-white-200 text-sm font-bold">{time}</p>
+                  <div className="w-full h-12 bg-gray-200 rounded-xl"></div>
+                </div>
+              ))}
+            </div>
+
+            <div className="flex justify-center items-center bg-[#455E86] p-2 mt-2">
+              <button className="w-[200px] h-[50px] bg-green-600 text-black rounded-2xl hover:bg-gray-400 flex justify-center items-center">
+                Book Now
+              </button>
+            </div>
+          </div>
+        </div>
       </div>
-    ))}
-  </div>
-
-  <div className="sticky bottom-0 bg-blue-600 p-2 mt-2">
-    <button className="w-full bg-gray-200 text-black p-3 rounded-2xl hover:bg-gray-400">
-      Book Now
-    </button>
-  </div>
-</div>
-
-
-      </div>
-    </div>
-    <Footer/>
+      <Footer />
     </div>
   );
-}
+};
 
-export default Roombooking
+export default Roombooking;

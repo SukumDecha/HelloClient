@@ -43,7 +43,7 @@ const BuildingAndFloorSelector = () => {
           disabled={!selectedBuilding} 
         >
           {floors.length > 0 ? (
-            floors.map((floor, index) => (
+            floors.map((floor, index) => (  
               <option key={index} value={floor}>
                 {floor}
               </option>
@@ -52,6 +52,17 @@ const BuildingAndFloorSelector = () => {
             <option value="">Please select a building first</option>
           )}
         </select>
+        <div lassName="px-4 bg-amber-50">
+                <label className="block font-bold mb-1 text-3xl">Select Room:</label>
+                <select className="w-full border rounded-2xl px-2 py-3 text-black bg-white">
+                  <option value="" disabled selected>
+                    Select a room
+                  </option>
+                  <option value="Room A">Room A</option>
+                  <option value="Room B">Room B</option>
+                  <option value="Room C">Room C</option>
+                </select>
+              </div>
       </div>
     </div>
   );
