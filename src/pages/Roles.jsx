@@ -21,7 +21,7 @@ export default function PickYourRole() {
 
       <div className="relative flex flex-col items-center">
         <h2 className="text-5xl font-bold mb-10">Pick Your Role</h2>
-        <div className="flex gap-10">
+        <div className="flex flex-col gap-6">
           {["Lecturer", "Student", "Staff", "LF"].map((role) => (
             <button 
               key={role} 
@@ -35,7 +35,7 @@ export default function PickYourRole() {
       </div>
 
       {popupVisible && (
-        <div className="fixed bottom-5 right-5 bg-white text-black p-10 shadow-lg w-100">
+        <div className="fixed bottom-5 right-5 bg-white text-black p-10 shadow-lg w-100 rounded-2xl">
           <div className="relative">
             <button 
               className="absolute -top-4 -right-4 text-red-500 hover:text-black"
