@@ -1,5 +1,5 @@
 // App.js
-import currentDate from "./currentdate";
+import currentDate from "../utils/currentdate";
 
 const opdate = () => {
   return (
