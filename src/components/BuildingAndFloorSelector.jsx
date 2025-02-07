@@ -5,10 +5,16 @@ const BuildingAndFloorSelector = () => {
   const [floors, setFloors] = useState([]); 
 
   const buildings = {
-    LX: ["Floor 10","Floor 11", "Floor 12", "Floor 13"],
+    LX: ["Floor 10","Floor 11", "Floor 12"],
     "CB 2": ["Floor A", "Floor B", "Floor C"],
     SIT: ["Level X", "Level Y", "Level Z"],
   };
+
+  const Room =  {
+    LX: ["Floor 10","Floor 11", "Floor 12"],
+    "CB 2": ["Floor A", "Floor B", "Floor C"],
+    SIT: ["Level X", "Level Y", "Level Z"],
+  }
 
   const handleBuildingSelect = (building) => {
     setSelectedBuilding(building); 
@@ -24,7 +30,7 @@ const BuildingAndFloorSelector = () => {
             <button
               key={index}
               onClick={() => handleBuildingSelect(building)}
-              className={`px-11 py-3 rounded-3xl font-bold ${
+              className={`px-8 py-3 rounded-3xl font-bold ${
                 selectedBuilding === building
                   ? "bg-green-500 text-white" 
                   : "bg-gray-300 text-black hover:bg-gray-400"
@@ -52,7 +58,7 @@ const BuildingAndFloorSelector = () => {
             <option value="">Please select a building first</option>
           )}
         </select>
-        <div lassName="px-4 bg-amber-50">
+        <div>
                 <label className="block font-bold mb-1 text-3xl">Select Room:</label>
                 <select className="w-full border rounded-2xl px-2 py-3 text-black bg-white">
                   <option value="" disabled selected>

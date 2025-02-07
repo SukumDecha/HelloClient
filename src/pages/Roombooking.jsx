@@ -21,7 +21,7 @@ const Roombooking = () => {
       <div className="bg-[#455E86] w-full h-[125px]">
         <Navbar />
       </div>
-      <div className="p-6 bg-white min-h-screen">
+      <div className="p-6 bg-white min-h-screen ">
         <header className="py-4">
           <h1 className="text-3xl font-bold text-black">Booking Detail</h1>
         </header>
@@ -78,6 +78,17 @@ const Roombooking = () => {
                   <option value="09:00">09:00</option>
                   <option value="10:00">10:00</option>
                   <option value="11:00">11:00</option>
+                  <option value="12:00">12:00</option>
+                  <option value="13:00">13:00</option>
+                  <option value="14:00">14:00</option>
+                  <option value="15:00">15:00</option>
+                  <option value="16:00">16:00</option>
+                  <option value="17:00">17:00</option>
+                  <option value="18:00">18:00</option>
+                  <option value="19:00">19:00</option>
+                  <option value="20:00">20:00</option>
+                  <option value="21:00">21:00</option>
+                  <option value="22:00">22:00</option>
                 </select>
 
                 <div className="mt-5.5">
@@ -104,8 +115,8 @@ const Roombooking = () => {
             <div className="overflow-y-auto flex-1 pr-2">
               <p className="text-lg font-bold mb-4">All Day</p>
               {[
-                "8.00",
-                "9.00",
+                "08.00",
+                "09.00",
                 "10.00",
                 "11.00",
                 "12.00",
@@ -113,6 +124,12 @@ const Roombooking = () => {
                 "14.00",
                 "15.00",
                 "16.00",
+                "17.00",
+                "18.00",
+                "19.00",
+                "20.00",
+                "21.00",
+                "22.00"
               ].map((time, i) => (
                 <div key={i} className="mb-4">
                   <p className="text-white-200 text-sm font-bold">{time}</p>
@@ -122,7 +139,7 @@ const Roombooking = () => {
             </div>
 
             <div className="flex justify-center items-center bg-[#455E86] p-2 mt-2">
-              <button className="w-[200px] h-[50px] bg-green-600 text-black rounded-2xl hover:bg-gray-400 flex justify-center items-center">
+              <button className="w-[200px] h-[50px] bg-green-500 text-white rounded-full hover:bg-green-700 hover:cursor-pointer flex justify-center font-bold items-center">
                 Book Now
               </button>
             </div>
