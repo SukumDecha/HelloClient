@@ -171,12 +171,12 @@ const Roombooking = () => {
               </div>
               
               <div>
-                <div className="mt-5.5">
+                <div>
                   <label className="block font-bold mb-3 text-3xl">User:</label>
                   <input 
                     type="text" 
                     placeholder="First name" 
-                    className="w-full border rounded-2xl px-2 py-2 text-black bg-white"
+                    className="w-full border rounded-2xl px-2 py-2  text-black bg-white"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
