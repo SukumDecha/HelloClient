@@ -1,38 +1,44 @@
 import React, { useState } from 'react'; 
-import { useNavigate } from 'react-router-dom'; // นำเข้า useNavigate
+import { useNavigate } from 'react-router-dom';
 
 export default function PickYourRole() {
   const [popupVisible, setPopupVisible] = useState(true);
-  const navigate = useNavigate(); // ใช้ useNavigate()
+  const navigate = useNavigate();
 
   const handleRoleSelection = (role) => {
     if (role === "Student") {
       alert("Please contact staff.");
     } else {
-      navigate("/Heropage"); // นำทางไปยังหน้า Home (Heropage)
+      navigate("/Heropage");
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
-      <h2 className="text-2xl font-bold mb-4">Pick Your Role</h2>
-      <div className="space-y-4">
-        {["Lecturer", "Student", "Staff", "LF"].map((role) => (
-          <button 
-            key={role} 
-            className="w-40 text-lg bg-blue-500 text-white p-2 rounded"
-            onClick={() => handleRoleSelection(role)}
-          >
-            {role}
-          </button>
-        ))}
+    <div className="relative flex flex-col items-center justify-center min-h-screen bg-[url('../src/img/Herobg.png')] bg-cover bg-center text-white">
+      
+      
+      <div className="absolute inset-0 bg-black/60"></div>
+
+      <div className="relative flex flex-col items-center">
+        <h2 className="text-5xl font-bold mb-10">Pick Your Role</h2>
+        <div className="flex gap-10">
+          {["Lecturer", "Student", "Staff", "LF"].map((role) => (
+            <button 
+              key={role} 
+              className="w-40 text-lg bg-[#455E86] hover:bg-gray-400 text-white p-3 rounded"
+              onClick={() => handleRoleSelection(role)}
+            >
+              {role}
+            </button>
+          ))}
+        </div>
       </div>
 
       {popupVisible && (
-        <div className="fixed bottom-5 right-5 bg-white text-black p-4 shadow-lg w-80">
+        <div className="fixed bottom-5 right-5 bg-white text-black p-10 shadow-lg w-100">
           <div className="relative">
             <button 
-              className="absolute top-2 right-2 text-gray-500 hover:text-black"
+              className="absolute -top-4 -right-4 text-red-500 hover:text-black"
               onClick={() => setPopupVisible(false)}
             >
               X
