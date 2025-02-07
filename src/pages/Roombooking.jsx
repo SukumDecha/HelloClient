@@ -31,7 +31,7 @@ const Roombooking = () => {
 
     const fetchRooms = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/room");
+        const response = await axios.get("http://helloworld06.sit.kmutt.ac.th:3000/api/room");
         if (response.data.success) {
           const availableRooms = response.data.data
             .filter(room => room.room_open === 1)
@@ -52,7 +52,7 @@ const Roombooking = () => {
       if (!selectedRoom) return;
       
       try {
-        const response = await axios.get("http://localhost:3000/api/booking");
+        const response = await axios.get("http://helloworld06.sit.kmutt.ac.th:3000/api/booking");
         if (response.data.success) {
           const selectedDateStr = selectedDate.toISOString().split('T')[0];
           const relevantBookings = response.data.data.filter(booking => 
@@ -71,7 +71,7 @@ const Roombooking = () => {
 
   const isTimeSlotBooked = (timeSlot) => {
     const timeSlotHour = parseInt(timeSlot.split(':')[0]);
-    return bookings.some(booking => {
+    return bookings.find(booking => {
       const startHour = new Date(booking.start_time).getHours();
       const endHour = new Date(booking.end_time).getHours();
       return timeSlotHour >= startHour && timeSlotHour < endHour;
@@ -81,24 +81,29 @@ const Roombooking = () => {
   const handleBookNow = async () => {
     try {
       const bookingData = {
-        staff_id: parseInt(staffId),
+        staffId: parseInt(staffId),
         fname: firstName,
         lname: lastName,
-        room_id: selectedRoom,
-        start_time: startTime,
-        end_time: endTime
+        roomId: selectedRoom,
+        startT: startTime,
+        endT: endTime
       };
 
-      const response = await axios.post('http://localhost:3000/api/booking', bookingData);
+      const response = await axios.post('http://helloworld06.sit.kmutt.ac.th:3000/api/booking', bookingData);
       
       if (response.data.success) {
         alert("Booking successful!");
-        // Reset form or update UI as needed
+        window.location.reload();
       }
     } catch (error) {
       console.error("Booking failed:", error);
       alert("Booking failed. Please try again.");
     }
+  };
+
+  const formatTime = (dateTimeStr) => {
+    const date = new Date(dateTimeStr);
+    return date.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit' });
   };
 
   return (
@@ -108,7 +113,7 @@ const Roombooking = () => {
       </div>
       <div className="p-6 bg-white min-h-screen">
         <header className="py-4">
-          <h1 className="text-3xl font-bold text-black">Booking Detail</h1>
+          <h1 className="text-3xl font-bold text-black">Booking Details</h1>
         </header>
 
         <div className="flex justify-center items-center bg-gray-100 p-4 rounded-lg">
@@ -134,7 +139,7 @@ const Roombooking = () => {
           <div className="bg-[#455E86] text-white p-6 rounded-lg">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block font-bold mb-3 text-3xl">Start Date/Time:</label>
+                <label className="block font-bold mb-3 text-3xl">Start Time:</label>
                 <input
                   type="datetime-local"
                   className="w-full border rounded-2xl p-6 text-black bg-white"
@@ -143,7 +148,7 @@ const Roombooking = () => {
                 />
               </div>
               <div>
-                <label className="block font-bold mb-3 text-3xl">End Date/Time:</label>
+                <label className="block font-bold mb-3 text-3xl">End Time:</label>
                 <input
                   type="datetime-local"
                   className="w-full border rounded-2xl p-6 text-black bg-white"
@@ -172,11 +177,11 @@ const Roombooking = () => {
               
               <div>
                 <div>
-                  <label className="block font-bold mb-3 text-3xl">User:</label>
+                  <label className="block font-bold mb-3 text-3xl">User Details:</label>
                   <input 
                     type="text" 
                     placeholder="First name" 
-                    className="w-full border rounded-2xl px-2 py-2  text-black bg-white"
+                    className="w-full border rounded-2xl px-2 py-2 text-black bg-white"
                     value={firstName}
                     onChange={(e) => setFirstName(e.target.value)}
                   />
@@ -202,19 +207,28 @@ const Roombooking = () => {
           <div className="bg-[#455E86] text-white p-6 rounded-lg flex flex-col h-[425px] relative">
             <div className="overflow-y-auto flex-1 pr-2">
               <p className="text-lg font-bold mb-5">
-                {selectedRoom ? `Timeslots for ${selectedRoom}` : "Select a Room"}
+                {selectedRoom ? `Time slots for ${selectedRoom}` : "Please select a room"}
               </p>
               {["08:00", "09:00", "10:00", "11:00", "12:00", "13:00", "14:00", 
-                "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"].map((time, i) => (
-                <div key={i} className="mb-4">
-                  <p className="text-white-200 text-sm font-bold">{time}</p>
-                  <div 
-                    className={`w-full h-12 rounded-xl ${
-                      isTimeSlotBooked(time) ? "bg-red-500 cursor-not-allowed" : "bg-green-500 cursor-pointer hover:bg-green-600"
-                    }`}
-                  ></div>
-                </div>
-              ))}
+                "15:00", "16:00", "17:00", "18:00", "19:00", "20:00", "21:00", "22:00"].map((time, i) => {
+                const bookingInfo = isTimeSlotBooked(time);
+                return (
+                  <div key={i} className="mb-4 relative">
+                    <p className="text-white-200 text-sm font-bold">{time}</p>
+                    <div 
+                      className={`w-full h-12 rounded-xl ${
+                        bookingInfo ? "bg-red-500" : "bg-green-500 hover:bg-green-600"
+                      }`}
+                    >
+                      {bookingInfo && (
+                        <div className="absolute inset-0 flex items-center justify-start px-4 text-sm">
+                          <span>Booked: {bookingInfo.fname} {bookingInfo.lname} (ID: {bookingInfo.staff_id})</span>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
 
             <div className="flex justify-center items-center bg-[#455E86] p-2 mt-2">
