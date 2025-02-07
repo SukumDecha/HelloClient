@@ -14,7 +14,6 @@ const navbar = () => {
             <LinkCom Linkto="/Heropage" text="Home"/>
             <LinkCom Linkto="/Roombooking" text="Booking Detail"/>
             <LinkCom Linkto="/Help" text="Help"/>
-            <LinkCom Linkto="/Report" text="Report"/>
         </div>
         <div className='navcontent'>
             <button className="flex gap-1.5"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="size-6">

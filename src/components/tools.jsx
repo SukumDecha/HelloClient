@@ -15,7 +15,6 @@ const Tools = () => {
   const [showBuildingDropdown, setShowBuildingDropdown] = useState(false);
   const [selectedDate, setSelectedDate] = useState("Date/Time");
   const [selectedBuilding, setSelectedBuilding] = useState("Building");
-  const [hoveredBuilding, setHoveredBuilding] = useState(null);
 
   return (
     <div className="toolscontent flex items-center gap-4">
@@ -124,36 +123,33 @@ const Tools = () => {
   )}
 </div>
 
-      {/* Image beside the dropdown */}
-      {hoveredBuilding && (
-        <div className="w-40 h-40 bg-white shadow-md border rounded-lg p-2 ml-4">
-          <img
-            src={hoveredBuilding}
-            alt="Building"
-            className="w-full h-full object-cover"
-          />
-        </div>
-      )}
 
       {/* Search Button */}
       <div>
-        <button className="search-btn flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">
-          <LinkCom Linkto="/Roombooking" text="Search" />
-          <svg
-            className="w-5 h-5"
-            xmlns="http://www.w3.org/2000/svg"
-            width="17"
-            height="16"
-            viewBox="0 0 17 16"
-            fill="none"
-          >
-            <path
-              d="M8.49967 1.3335C12.1797 1.3335 15.1663 4.32016 15.1663 8.00016C15.1663 11.6802 12.1797 14.6668 8.49967 14.6668C4.81967 14.6668 1.83301 11.6802 1.83301 8.00016C1.83301 4.32016 4.81967 1.3335 8.49967 1.3335ZM8.49967 7.3335H5.83301V8.66683H8.49967V10.6668L11.1663 8.00016L8.49967 5.3335V7.3335Z"
-              fill="white"
-            />
-          </svg>
-        </button>
-      </div>
+  <button
+    className="search-btn flex items-center gap-2 bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300"
+    onClick={() => {
+      // ใช้ localStorage หรือ URL parameters ส่งข้อมูลไปหน้า Roombooking
+      localStorage.setItem("selectedDate", selectedDate);
+      localStorage.setItem("selectedBuilding", selectedBuilding);
+    }}
+  >
+    <LinkCom Linkto="/Roombooking" text="Search" />
+    <svg
+      className="w-5 h-5"
+      xmlns="http://www.w3.org/2000/svg"
+      width="17"
+      height="16"
+      viewBox="0 0 17 16"
+      fill="none"
+    >
+      <path
+        d="M8.49967 1.3335C12.1797 1.3335 15.1663 4.32016 15.1663 8.00016C15.1663 11.6802 12.1797 14.6668 8.49967 14.6668C4.81967 14.6668 1.83301 11.6802 1.83301 8.00016C1.83301 4.32016 4.81967 1.3335 8.49967 1.3335ZM8.49967 7.3335H5.83301V8.66683H8.49967V10.6668L11.1663 8.00016L8.49967 5.3335V7.3335Z"
+        fill="white"
+      />
+    </svg>
+  </button>
+</div>
     </div>
   );
 };
