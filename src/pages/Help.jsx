@@ -8,7 +8,7 @@ const Help = () => {
     <div className="bg-[#455E86] w-full h-[125px] ">
       <Navbar />
     </div>
-    <div className="grid mx-50 my-10 gap-10">
+    <div className="grid mx-50 my-10 gap-8">
       <Accordion 
       topic="How to book a classroom ?" 
       text="Select the desired date and time =>
@@ -16,7 +16,7 @@ const Help = () => {
       Confirm the booking."/>
       <Accordion 
       topic="How far in advance can I book a classroom ?" 
-      text="You can book up to 7 days in advance."/>
+      text="You can book in advance without limits, but you can only view up to 7 days from today."/>
       <Accordion 
       topic="Can I cancel or modify my booking ?" 
       text="Yes, you can cancel or modify your booking at any time."/>

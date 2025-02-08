@@ -20,12 +20,12 @@ export default function PickYourRole() {
       <div className="absolute inset-0 bg-black/60"></div>
 
       <div className="relative flex flex-col items-center">
-        <h2 className="text-5xl font-bold mb-10">Pick Your Role</h2>
+        <h2 className="text-5xl font-[<regular>] mb-10">Pick Your Role</h2>
         <div className="flex flex-col gap-6">
           {["Lecturer", "Student", "Staff", "LF"].map((role) => (
             <button 
               key={role} 
-              className="w-40 text-lg bg-[#455E86] hover:bg-gray-400 text-white p-3 rounded"
+              className="w-40 text-lg bg-white hover:bg-gray-400 text-[#455E86] p-3 rounded-full hover:pointer"
               onClick={() => handleRoleSelection(role)}
             >
               {role}

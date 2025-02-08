@@ -4,17 +4,17 @@ const Accordion = ({topic,text}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="p-2.5 bg-gray-800 text-white rounded-lg animate-[slideInFromLeft] ease-in-out">
+    <div className="p-2.5  text-white rounded-lg animate-[slideInFromLeft] ease-in-out">
       <button
-        className="w-full text-left font-bold p-2 bg-[#455E86] rounded-lg"
+        className="w-full text-left font-bold p-4 bg-[#455E86] rounded-lg"
         onClick={() => setIsOpen(!isOpen)}
       >
         {isOpen ? "▼ " : "▶ " }{topic}
       </button>
 
       {isOpen && (
-        <div className="mt-2 p-2 bg-gray-900 rounded-lg">
-          <p>
+        <div className="mt-1 p-4 bg-[#DDDDDD] rounded-lg">
+          <p className="text-black">
             {text}
           </p>
         </div>

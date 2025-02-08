@@ -13,7 +13,7 @@ export default function Footer() {
   return (
     <footer ref={footerRef} className="bg-[#455E86] text-white py-8 px-4">
       <div className="max-w-4xl mx-auto text-left">
-        <button className="bg-gray-200 text-black px-4 py-2 rounded-lg mb-4">Contact</button>
+        <button className="bg-gray-200 text-[#455E86] px-4 py-2 rounded-lg mb-4">Contact</button>
         <div className="space-y-3">
           <p className="flex items-center gap-2">
             <FaPhone /> +662 470 9850
