@@ -2,7 +2,7 @@ import LinkCom from "./Link";
 import '../App.css';
 import Opdate from "./Opdate";
 
-const navbar = () => {
+const Navbar = () => {
   return (
     <>
     <div className='Navbar'>
@@ -34,4 +34,4 @@ const navbar = () => {
   )
 }
 
-export default navbar
+export default Navbar
