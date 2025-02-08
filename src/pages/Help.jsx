@@ -1,6 +1,6 @@
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Accordion from "../components/Formhelp";
-import Navbar from "../components/navbar"
+import Navbar from "../components/Navbar"
 
 const Help = () => {
   return (

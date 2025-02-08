@@ -1,4 +1,4 @@
-const currentDate = () => {
+const CurrentDate = () => {
     const today = new Date();
     return today.toLocaleDateString("en-US", {
       month: "short",
@@ -7,4 +7,4 @@ const currentDate = () => {
     });
   };
   
-  export default currentDate;
+  export default CurrentDate;

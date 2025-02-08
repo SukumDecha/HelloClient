@@ -1,7 +1,7 @@
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import Mybooking from "../components/Mybooking";
-import Navbar from "../components/navbar"
-import Tools from "../components/tools";
+import Navbar from "../components/Navbar"
+import Tools from "../components/Tools";
 
 
 const Heropage = () => {

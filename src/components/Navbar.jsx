@@ -1,6 +1,6 @@
 import LinkCom from "./Link";
 import '../App.css';
-import App from "./opdate";
+import Opdate from "./Opdate";
 
 const navbar = () => {
   return (
@@ -8,7 +8,7 @@ const navbar = () => {
     <div className='Navbar'>
         <div className='navcontent'>
           <div className="date">
-            <App />
+            <Opdate />
             <h2>Open Hour : 08.00 - 22.00</h2>
           </div>
             <LinkCom Linkto="/Heropage" text="Home"/>

@@ -1,6 +1,4 @@
-import RoleSelector from "../pages/Roles";
 import LinkCom from "./Link";
-
 
 const Tools = () => {
   return (

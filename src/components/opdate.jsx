@@ -1,12 +1,11 @@
-// App.js
-import currentDate from "../utils/currentdate";
+import CurrentDate from "../utils/CurrentDate";
 
-const opdate = () => {
+const Opdate = () => {
   return (
     <div>
-      <h2>{currentDate()}</h2>
+      <h2>{CurrentDate()}</h2>
     </div>
   );
 };
 
-export default opdate;
+export default Opdate;
