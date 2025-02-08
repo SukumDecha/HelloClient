@@ -4,9 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import { useLocation } from "react-router-dom";
 
-
 const Roombooking = () => {
-
   const [selectedRoom, setSelectedRoom] = useState("");
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [firstName, setFirstName] = useState("");
@@ -119,7 +117,7 @@ const Roombooking = () => {
         date.setHours(date.getHours() + 7);
         return date.toISOString().slice(0, 19).replace("T", " ");
       };
-  
+
       const bookingData = {
         staffId: parseInt(staffId),
         fname: firstName,
@@ -128,7 +126,7 @@ const Roombooking = () => {
         startT: adjustTimeForBackend(startTime),
         endT: adjustTimeForBackend(endTime),
       };
-  
+
       if (location.state?.bookingData?.bookId) {
         // ลบข้อมูลการจองเก่า
         const bookId = location.state.bookingData.bookId;
@@ -149,7 +147,7 @@ const Roombooking = () => {
         );
         alert("Booking successful!");
       }
-  
+
       await fetchBookings();
     } catch (error) {
       console.error("Booking failed:", error);
@@ -171,7 +169,7 @@ const Roombooking = () => {
     if (location.state?.bookingData) {
       const { firstName, lastName, staffId, startTime, endTime, roomId } =
         location.state.bookingData;
-      
+
       setFirstName(firstName);
       setLastName(lastName);
       setStaffId(staffId);
@@ -181,7 +179,6 @@ const Roombooking = () => {
     }
   }, [location]);
 
-  
   return (
     <div>
       <div className="bg-[#455E86] w-full h-[125px]">
@@ -361,11 +358,11 @@ const Roombooking = () => {
                 timeSlotDate.setHours(parseInt(hours), 0, 0, 0);
 
                 const showPendingBooking =
-  startTime &&
-  endTime &&
-  timeSlotDate >= new Date(startTime) &&
-  timeSlotDate < new Date(endTime) &&
-  selectedRoom;
+                  startTime &&
+                  endTime &&
+                  timeSlotDate >= new Date(startTime) &&
+                  timeSlotDate < new Date(endTime) &&
+                  selectedRoom;
 
                 return (
                   <div key={i} className="mb-4 relative">

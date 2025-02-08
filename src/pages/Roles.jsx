@@ -25,7 +25,7 @@ export default function PickYourRole() {
           {["Lecturer", "Student", "Staff", "LF"].map((role) => (
             <button 
               key={role} 
-              className="w-40 text-lg bg-white hover:bg-gray-400 text-[#455E86] p-3 rounded-full hover:pointer"
+              className="w-40 text-lg bg-white hover:bg-gray-400 text-[#455E86] hover:cursor-pointer p-3 rounded-full hover:pointer"
               onClick={() => handleRoleSelection(role)}
             >
               {role}
@@ -35,7 +35,7 @@ export default function PickYourRole() {
       </div>
 
       {popupVisible && (
-        <div className="fixed bottom-5 right-5 bg-white text-black p-10 shadow-lg w-100 rounded-2xl">
+        <div className="fixed bottom-5 right-5 bg-white text-[#455E86] p-10 shadow-lg w-100 rounded-2xl">
           <div className="relative">
             <button 
               className="absolute -top-4 -right-4 text-red-500 hover:text-black"
@@ -47,9 +47,9 @@ export default function PickYourRole() {
               กรุณาทำการจองล่วงหน้าอย่างน้อย 24 ชม. 
               หากต้องการความช่วยเหลือ กรุณาติดต่อ Helpdesk ที่:
               <br />
-              📞 0-2470-9820  
+              0-2470-9820  
               <br />
-              📧 servicedesk@sit.kmutt.ac.th  
+              servicedesk@sit.kmutt.ac.th  
             </p>
           </div>
         </div>

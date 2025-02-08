@@ -5,8 +5,11 @@ import Tools from "../components/tools";
 
 
 const Heropage = () => {
+  
+
   return (
     <>
+    
       <div className="Herobg">
         <Navbar/>
         <h1>Welcome to SIT <br />

@@ -1,10 +1,11 @@
 import { useState } from "react";
+import '../App.css';
 
 const Accordion = ({topic,text}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="p-2.5  text-white rounded-lg animate-[slideInFromLeft] ease-in-out">
+    <div className="p-2.5  text-white rounded-lg animate-[slideInFromLeft] bg-[#DDDDDD] ease-in-out">
       <button
         className="w-full text-left font-bold p-4 bg-[#455E86] rounded-lg"
         onClick={() => setIsOpen(!isOpen)}
@@ -13,7 +14,7 @@ const Accordion = ({topic,text}) => {
       </button>
 
       {isOpen && (
-        <div className="mt-1 p-4 bg-[#DDDDDD] rounded-lg">
+        <div className="hiddenTag">
           <p className="text-black">
             {text}
           </p>

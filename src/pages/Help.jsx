@@ -8,7 +8,7 @@ const Help = () => {
     <div className="bg-[#455E86] w-full h-[125px] ">
       <Navbar />
     </div>
-    <div className="grid mx-50 my-10 gap-8">
+    <div className="grid mx-50 my-10 gap-8 ">
       <Accordion 
       topic="How to book a classroom ?" 
       text="Select the desired date and time =>

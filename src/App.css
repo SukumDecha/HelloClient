@@ -34,7 +34,7 @@ body{
     height: 38px;
     padding: 7px 19px;
     border-radius: 100px;
-    background-color: #FFFFFF;
+    background-color: #f0f0f08b;
     color: black;
     border: none;
     cursor: pointer;
@@ -144,3 +144,11 @@ input::placeholder{
 .en-btn:hover{
     cursor: pointer;
 }
+.hiddenTag {
+    margin-top: 1rem; /* mt-1 */
+    padding: 1rem;    /* p-4 */
+    background-color: #DDDDDD; /* bg-[#DDDDDD] */
+    border-radius: 0.5rem; /* rounded-lg */
+    animation: none;
+  }
+  
