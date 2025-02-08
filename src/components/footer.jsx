@@ -1,7 +1,7 @@
 import { FaPhone, FaMapMarkerAlt, FaEnvelope, FaCommentDots, FaFacebook, FaInstagram, FaYoutube } from "react-icons/fa";
 import { useEffect, useRef } from "react";
 
-export default function Footer() {
+const Footer = () => {
   const footerRef = useRef(null);
 
   useEffect(() => {
@@ -37,3 +37,5 @@ export default function Footer() {
     </footer>
   );
 }
+
+export default Footer;
